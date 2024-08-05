@@ -114,3 +114,15 @@ variable "additional_container_definitions" {
   type    = list(string)
   default = []
 }
+
+variable "launch_type" {
+  type        = string
+  description = "The launch type on which to run your service. Valid values are `EC2` and `FARGATE`"
+  default     = "FARGATE"
+}
+
+variable "network_mode" {
+  type        = string
+  description = "The network mode to use for the task. This is required to be `awsvpc` for `FARGATE` `launch_type` or `null` for `EC2` `launch_type`"
+  default     = "awsvpc"
+}

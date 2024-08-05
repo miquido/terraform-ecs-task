@@ -50,9 +50,9 @@ module "container" {
 
 resource "aws_ecs_task_definition" "default" {
   family                   = local.family
-  network_mode             = "awsvpc"
+  network_mode             = var.network_mode
   container_definitions    = local.container_definitions_json
-  requires_compatibilities = ["FARGATE"]
+  requires_compatibilities = [var.launch_type]
   cpu                      = var.task_cpu
   memory                   = var.task_memory
   task_role_arn            = aws_iam_role.service_role.arn

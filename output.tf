@@ -14,8 +14,16 @@ output "service_role_arn" {
   value = aws_iam_role.service_role.arn
 }
 
+output "service_role_name" {
+  value = aws_iam_role.service_role.name
+}
+
 output "execution_role_arn" {
   value = aws_iam_role.execution_role.arn
+}
+
+output "execution_role_name" {
+  value = aws_iam_role.execution_role.name
 }
 
 output "service_role_id" {
